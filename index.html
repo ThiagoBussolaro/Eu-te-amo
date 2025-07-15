@@ -16,7 +16,7 @@
       height: 100%;
     }
 
-    /* Fundo com imagem */
+    /* Imagem de fundo */
     body::before {
       content: "";
       position: fixed;
@@ -28,7 +28,7 @@
       z-index: -2;
     }
 
-    /* Camada escura para leitura */
+    /* Escurecer fundo */
     body::after {
       content: "";
       position: fixed;
@@ -134,8 +134,8 @@
     }
 
     .carousel {
-      width: 80%;
-      max-width: 350px;
+      width: 90%;
+      max-width: 400px;
       margin: auto;
     }
 
@@ -171,7 +171,7 @@
     }
 
     .poema-container {
-      background-color: #e8f5ff;
+      background-color: #f7fbff;
       border-radius: 20px;
       padding: 35px;
       max-width: 750px;
@@ -214,32 +214,92 @@
     #mensagemSecreta.show {
       opacity: 1;
     }
+
+    /* RESPONSIVIDADE */
+    @media (max-width: 768px) {
+      #btnIniciar {
+        font-size: 1.1em;
+        padding: 12px 30px;
+      }
+
+      #paginaInicial h2 {
+        font-size: 1.8em;
+      }
+
+      .btn-musica {
+        width: 60px;
+        height: 60px;
+      }
+
+      .texto-musica {
+        font-size: 0.5em;
+      }
+
+      .slide {
+        width: 100%;
+        max-width: 90vw;
+      }
+
+      .container {
+        padding: 20px 10px;
+      }
+
+      .poema {
+        font-size: 1.4em;
+        line-height: 1.8em;
+      }
+
+      .poema-container {
+        padding: 25px 15px;
+      }
+
+      #mensagemSecreta {
+        font-size: 1.8em;
+        margin: 20px;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .container {
+        padding: 40px;
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      .slide {
+        max-width: 400px;
+      }
+
+      .poema {
+        font-size: 2.2em;
+      }
+
+      #mensagemSecreta {
+        font-size: 2.5em;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Emojis fixos no fundo -->
   <div class="fixed-hearts">
     <div class="fixed-heart">❣️</div>
-    <div class="fixed-heart">👸</div>
     <div class="fixed-heart">❣️</div>
-    <div class="fixed-heart">👸</div>
     <div class="fixed-heart">❣️</div>
-    <div class="fixed-heart">👸</div>
+    <div class="fixed-heart">❣️</div>
+    <div class="fixed-heart">❣️</div>
+    <div class="fixed-heart">❣️</div>
   </div>
 
-  <!-- Tela inicial -->
   <div id="paginaInicial">
     <h2>De: Dengo pouco<br>Para: Denguinho</h2>
     <button id="btnIniciar">Iniciar ❣️</button>
   </div>
 
-  <!-- Botão circular de música -->
   <div id="btnPlayPause" class="btn-musica">
     <span class="texto-musica">► NOSSA MÚSICA</span>
   </div>
 
-  <!-- Conteúdo principal -->
   <div class="container" id="sitePrincipal" style="display:none;">
     <div class="carousel">
       <img src="img1.jpg" class="slide active" />
@@ -291,10 +351,8 @@ Eu te amo, minha princesa ❣️
     </div>
   </div>
 
-  <!-- Música -->
   <audio id="audioPlayer" src="Coldplay - Sparks.mp3" loop autoplay></audio>
 
-  <!-- Scripts -->
   <script>
     document.getElementById("btnIniciar").addEventListener("click", () => {
       document.getElementById("paginaInicial").style.display = "none";
