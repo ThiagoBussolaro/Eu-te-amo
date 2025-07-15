@@ -16,7 +16,6 @@
       color: white;
     }
 
-    /* Emojis fixos no fundo */
     .fixed-hearts {
       position: fixed;
       top: 0;
@@ -73,35 +72,35 @@
       background-color: #ff4d6d;
     }
 
-    /* Botão de música fixo no topo */
+    /* Botão circular de música fixo no topo */
     .btn-musica {
       position: fixed;
       top: 10px;
       left: 50%;
       transform: translateX(-50%);
-      width: 140px;
-      height: 60px;
+      width: 80px;
+      height: 80px;
       background-image: url('img7.jpg');
       background-size: cover;
       background-position: center;
-      border-radius: 30px;
+      border-radius: 50%;
       box-shadow: 0 0 12px #ff4d6d;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       z-index: 999;
-      text-align: center;
     }
 
     .texto-musica {
       color: white;
       font-weight: bold;
-      font-size: 0.9em;
+      font-size: 0.6em;
+      text-align: center;
       text-shadow: 1px 1px 3px black;
       background-color: rgba(0, 0, 0, 0.4);
-      border-radius: 20px;
-      padding: 5px 10px;
+      padding: 5px 7px;
+      border-radius: 10px;
       pointer-events: none;
     }
 
@@ -212,7 +211,7 @@
     <button id="btnIniciar">Iniciar ❣️</button>
   </div>
 
-  <!-- Botão de música fixo -->
+  <!-- Botão de música -->
   <div id="btnPlayPause" class="btn-musica">
     <span class="texto-musica">► NOSSA MÚSICA</span>
   </div>
