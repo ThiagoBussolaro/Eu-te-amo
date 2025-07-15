@@ -10,10 +10,34 @@
     html, body {
       margin: 0;
       padding: 0;
-      background-color: #0e0e0e;
       font-family: 'Arial', sans-serif;
       overflow-x: hidden;
       color: white;
+      height: 100%;
+    }
+
+    /* Fundo com imagem */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('IMG_7930.jpeg') no-repeat center center/cover;
+      z-index: -2;
+    }
+
+    /* Camada escura para leitura */
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.45);
+      z-index: -1;
     }
 
     .fixed-hearts {
@@ -43,7 +67,7 @@
       position: fixed;
       width: 100%;
       height: 100vh;
-      background: #111;
+      background: rgba(0, 0, 0, 0.8);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -72,7 +96,6 @@
       background-color: #ff4d6d;
     }
 
-    /* Botão circular de música fixo no topo */
     .btn-musica {
       position: fixed;
       top: 10px;
@@ -198,11 +221,11 @@
   <!-- Emojis fixos no fundo -->
   <div class="fixed-hearts">
     <div class="fixed-heart">❣️</div>
+    <div class="fixed-heart">👸</div>
     <div class="fixed-heart">❣️</div>
+    <div class="fixed-heart">👸</div>
     <div class="fixed-heart">❣️</div>
-    <div class="fixed-heart">❣️</div>
-    <div class="fixed-heart">❣️</div>
-    <div class="fixed-heart">❣️</div>
+    <div class="fixed-heart">👸</div>
   </div>
 
   <!-- Tela inicial -->
@@ -211,7 +234,7 @@
     <button id="btnIniciar">Iniciar ❣️</button>
   </div>
 
-  <!-- Botão de música -->
+  <!-- Botão circular de música -->
   <div id="btnPlayPause" class="btn-musica">
     <span class="texto-musica">► NOSSA MÚSICA</span>
   </div>
@@ -299,7 +322,6 @@ Eu te amo, minha princesa ❣️
     audio.onplay = () => textoMusica.textContent = "❚❚ NOSSA MÚSICA";
     audio.onpause = () => textoMusica.textContent = "► NOSSA MÚSICA";
 
-    // Carrossel
     let currentIndex = 0;
     const slides = document.querySelectorAll(".slide");
     setInterval(() => {
@@ -308,7 +330,6 @@ Eu te amo, minha princesa ❣️
       slides[currentIndex].classList.add("active");
     }, 3000);
 
-    // Contador
     function atualizarContador() {
       const inicio = new Date("2021-07-09T23:45:00");
       const agora = new Date();
@@ -328,7 +349,6 @@ Eu te amo, minha princesa ❣️
     }
     atualizarContador();
 
-    // Corações ao clicar no poema
     document.getElementById("poemaContainer").addEventListener("click", (e) => {
       const heart = document.createElement("div");
       heart.className = "heart";
@@ -339,7 +359,6 @@ Eu te amo, minha princesa ❣️
       setTimeout(() => heart.remove(), 2000);
     });
 
-    // Mostrar mensagem secreta ao fim
     window.addEventListener("scroll", () => {
       const mensagem = document.getElementById("mensagemSecreta");
       if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
