@@ -72,25 +72,33 @@
       background-color: #ff4d6d;
     }
 
-    #btnPlayPause {
+    /* Botão de música com imagem fixa */
+    .btn-musica {
       position: fixed;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
+      bottom: 20px;
+      right: 20px;
+      width: 100px;
+      height: 100px;
       background-image: url('img7.jpeg');
       background-size: cover;
       background-position: center;
-      color: white;
-      padding: 10px 30px;
-      border: none;
-      border-radius: 20px;
-      font-size: 1.2em;
-      font-weight: bold;
-      box-shadow: 0 0 12px #ff4d6d;
-      z-index: 999;
-      text-shadow: 1px 1px 3px black;
+      border-radius: 50%;
+      box-shadow: 0 0 15px #ff4d6d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       cursor: pointer;
+      z-index: 999;
+    }
+
+    .texto-musica {
+      color: white;
+      font-weight: bold;
+      font-size: 0.75em;
       text-align: center;
+      text-shadow: 1px 1px 3px black;
+      padding: 5px;
+      pointer-events: none;
     }
 
     .container {
@@ -137,7 +145,7 @@
     }
 
     .poema-container {
-      background-color: #f7fbff;
+      background-color: #e8f5ff;
       border-radius: 20px;
       padding: 35px;
       max-width: 750px;
@@ -200,8 +208,10 @@
     <button id="btnIniciar">Iniciar ❣️</button>
   </div>
 
-  <!-- Botão música -->
-  <button id="btnPlayPause">► NOSSA MÚSICA</button>
+  <!-- Botão de música com imagem -->
+  <div id="btnPlayPause" class="btn-musica">
+    <span class="texto-musica">► NOSSA MÚSICA</span>
+  </div>
 
   <!-- Conteúdo principal -->
   <div class="container" id="sitePrincipal" style="display:none;">
@@ -266,6 +276,7 @@ Eu te amo, minha princesa ❣️
     });
 
     const btn = document.getElementById("btnPlayPause");
+    const textoMusica = document.querySelector(".texto-musica");
     const audio = document.getElementById("audioPlayer");
 
     function isPlaying(audio) {
@@ -275,15 +286,15 @@ Eu te amo, minha princesa ❣️
     btn.addEventListener("click", () => {
       if (isPlaying(audio)) {
         audio.pause();
-        btn.textContent = "► NOSSA MÚSICA";
+        textoMusica.textContent = "► NOSSA MÚSICA";
       } else {
         audio.play();
-        btn.textContent = "❚❚ NOSSA MÚSICA";
+        textoMusica.textContent = "❚❚ NOSSA MÚSICA";
       }
     });
 
-    audio.onplay = () => btn.textContent = "❚❚ NOSSA MÚSICA";
-    audio.onpause = () => btn.textContent = "► NOSSA MÚSICA";
+    audio.onplay = () => textoMusica.textContent = "❚❚ NOSSA MÚSICA";
+    audio.onpause = () => textoMusica.textContent = "► NOSSA MÚSICA";
 
     // Carrossel
     let currentIndex = 0;
